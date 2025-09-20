@@ -40,6 +40,6 @@ public class Venda {
                 ", Cliente=" + cliente.getNome() +
                 ", Data='" + dataVenda + '\'' +
                 ", Valor=" + valorVenda +
-                "FormaPagamento='" + formaPagamento + '\'' + '}';
+                ", FormaPagamento='" + formaPagamento + '\'' + '}';
     }
 }
