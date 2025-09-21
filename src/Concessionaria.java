@@ -17,7 +17,7 @@ public class Concessionaria {
     public boolean cadastrarCliente(Cliente cliente){
         for (Cliente c : clientes){
             if (c.getId() == cliente.getId()){
-                return false; // ja existe cliente com esse id
+                return false;
             }
         }
         clientes.add(cliente);
@@ -36,7 +36,7 @@ public class Concessionaria {
 
     public void listarClientes(){
         if(clientes.isEmpty()){
-            System.out.println("Sem clientes cadastrado.");
+            System.out.println("\nNenhum cliente encontrado.");
         }
         else{
             for (Cliente c : clientes){
@@ -48,7 +48,7 @@ public class Concessionaria {
     public boolean adicionarVeiculos(Veiculo v){
         for (Veiculo veic : veiculos){
             if(veic.getPlaca().equalsIgnoreCase(v.getPlaca())){
-                return false; // verifica se tao com a msm placa
+                return false;
             }
         }
         veiculos.add(v);
@@ -74,7 +74,7 @@ public class Concessionaria {
             }
         }
         if (!encontrou){
-            System.out.println("Nenhum disponivel no momento.");
+            System.out.println("\nNenhum veiculo disponivel.");
         }
     }
 
@@ -109,7 +109,7 @@ public class Concessionaria {
         }
 
         if (veiculoVendido == null) {
-            System.out.println("Veiculo não encontrado ou não disponivel.");
+            System.out.println("\nVeiculo não encontrado ou não disponivel.");
             return false;
         }
 
@@ -121,15 +121,13 @@ public class Concessionaria {
         }
 
         if (clienteComprador == null){
-            System.out.println("Cliente não encontrado.");
+            System.out.println("\nCliente não encontrado.");
             return false;
         }
 
-        //vender
         Venda novaVenda = new Venda(veiculoVendido, clienteComprador, dataVenda, valor, formaPagamento);
         vendas.add(novaVenda);
 
-        //mudar status do veiculo
         veiculoVendido.mudarDisponibilidade(false);
         System.out.println("\nVeiculo vendido.");
         return true;
@@ -137,7 +135,7 @@ public class Concessionaria {
 
     public void mostrarVendas(){
         if (vendas.isEmpty()){
-            System.out.println("Nenhuma venda realizada ainda.");
+            System.out.println("\nNenhuma venda realizada ainda.");
         }
         else {
             for (Venda v : vendas){

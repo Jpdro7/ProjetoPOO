@@ -14,7 +14,9 @@ public class Main {
                     "3- Cadastrar Veiculos.\n" +
                     "4- Listar Veiculos Disponiveis.\n" +
                     "5- Realizar Vendas.\n" +
-                    "6- Vendas Realizadas.");
+                    "6- Vendas Realizadas.\n" +
+                    "7- Remover Cliente.\n" +
+                    "8- Remover Veiculo.");
 
             System.out.print("\nOpção: ");
             int opcao = input.nextInt();
@@ -39,7 +41,7 @@ public class Main {
 
 
             if (opcao == 2){
-                System.out.println("\nClientes Cadastrados");
+                System.out.println("\n===Clientes Cadastrados===");
                 concessionaria.listarClientes();
                 continue;
             }
@@ -66,7 +68,7 @@ public class Main {
             }
 
             if(opcao == 4){
-                System.out.println("\nVeiculos Disponiveis");
+                System.out.println("\n===Veiculos Disponiveis===");
                 concessionaria.listarVeiculosDisponiveis();
                 continue;
             }
@@ -94,6 +96,32 @@ public class Main {
 
                 System.out.println("\nVeiculos Disponiveis Após a Venda");
                 concessionaria.listarVeiculosDisponiveis();
+            }
+
+            if (opcao == 7){
+                System.out.print("Digite o ID: ");
+                int idCliente = input.nextInt();
+                boolean remover = concessionaria.removerCliente(idCliente);
+                if (remover){
+                    System.out.println("\nCliente removido com sucesso.");
+                }
+                else {
+                    System.out.println("\nCliente não encontrado.");
+                }
+                continue;
+            }
+
+            if (opcao == 8){
+                input.nextLine();
+                System.out.print("\nDigite a placa: ");
+                String placa = input.nextLine();
+                boolean remover = concessionaria.removerVeiculos(placa);
+                if (remover){
+                    System.out.println("Veiculo removido com sucesso.");
+                }
+                else {
+                    System.out.println("Veiculo não encontrado.");
+                }
             }
         }
     }
