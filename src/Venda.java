@@ -35,11 +35,11 @@ public class Venda {
 
     @Override
     public String toString(){
-        return "Venda{" +
-                "Veiculo=" + veiculo.getModelo() + " (" + veiculo.getPlaca() + ")" +
-                ", Cliente=" + cliente.getNome() +
-                ", Data='" + dataVenda + '\'' +
-                ", Valor=" + valorVenda +
-                ", FormaPagamento='" + formaPagamento + '\'' + '}';
+        return "Venda = " +
+                "Veiculo: " + veiculo.getModelo() + " (" + veiculo.getPlaca() + ")" +
+                ", Cliente: " + cliente.getNome() +
+                ", Data: '" + dataVenda + '\'' +
+                ", Valor: " + valorVenda + " R$" +
+                ", FormaPagamento: '" + formaPagamento + '\'';
     }
 }

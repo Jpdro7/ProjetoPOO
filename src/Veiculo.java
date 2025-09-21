@@ -45,13 +45,12 @@ public class Veiculo {
 
     @Override
     public String toString(){
-        return "Veiculo{" +
-                "Marca='" + marca + '\'' +
-                ", Modelo='" + modelo + '\'' +
-                ", Placa='" + placa +'\'' +
-                ", Ano=" + ano +
-                ", Preço=" + preco +
-                ", Disponivel=" + (disponivel ? "SIM" : "NÃo") +
-                '}';
+        return "Veiculo = " +
+                "Marca: '" + marca + '\'' +
+                ", Modelo: '" + modelo + '\'' +
+                ", Placa: '" + placa +'\'' +
+                ", Ano: " + ano +
+                ", Preço: " + preco +
+                ", Disponivel: " + (disponivel ? "SIM" : "NÃo");
     }
 }

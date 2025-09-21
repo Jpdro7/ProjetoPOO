@@ -131,7 +131,7 @@ public class Concessionaria {
 
         //mudar status do veiculo
         veiculoVendido.mudarDisponibilidade(false);
-        System.out.println("Veiculo vendido.");
+        System.out.println("\nVeiculo vendido.");
         return true;
     }
 

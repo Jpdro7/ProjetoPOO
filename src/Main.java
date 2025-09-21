@@ -1,35 +1,100 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+
         Concessionaria concessionaria = new Concessionaria("Concessionaria Tres Irmãos");
+        while(true) {
 
-        Cliente cliente1 = new Cliente("João Pedro Almeida", 1, "(83) 9.9951-3927", "almeidanunesjoaopedro2@gmail.com");
-        Cliente cliente2 = new Cliente("Edglan Xavier", 2, "(83) 9.8118-8121", "edglanxavier@gmail.com");
-        Cliente cliente3 = new Cliente("Gabriel Moreira", 3, "(83) 9.9841-9980", "gabrielmoreira@gmail.com");
+            Scanner input = new Scanner(System.in);
 
-        concessionaria.cadastrarCliente(cliente1);
-        concessionaria.cadastrarCliente(cliente2);
-        concessionaria.cadastrarCliente(cliente3);
+            System.out.println("\n=====Menu=====");
+            System.out.println("1- Cadastro.\n" +
+                    "2- Listar Usuarios.\n" +
+                    "3- Cadastrar Veiculos.\n" +
+                    "4- Listar Veiculos Disponiveis.\n" +
+                    "5- Realizar Vendas.\n" +
+                    "6- Vendas Realizadas.");
 
-        System.out.println("Clientes Cadastrados");
-        concessionaria.listarClientes();
+            System.out.print("\nOpção: ");
+            int opcao = input.nextInt();
 
-        Veiculo v1 = new Veiculo("Ferrari", "La Ferrari", "FER1A23", 2013, true, 3800000.0);
-        Veiculo v2  = new Veiculo("Porsche", "911 Cabriolet", "PRS3C45", 2025, true, 150000.0);
-        Veiculo v3  = new Veiculo("Lamborghine", "Revuelto", "LAM6B78", 2025, true, 736900.0);
+            if (opcao == 1){
+                input.nextLine();
+                System.out.print("Digite seu nome: ");
+                String nome = input.nextLine();
+                System.out.print("Digite seu ID: ");
+                int id = input.nextInt();
+                input.nextLine();
+                System.out.print("Digite seu telefone: ");
+                String telefone = input.nextLine();
+                System.out.print("Digite seu email: ");
+                String email = input.nextLine();
 
-        concessionaria.adicionarVeiculos(v1);
-        concessionaria.adicionarVeiculos(v2);
-        concessionaria.adicionarVeiculos(v3);
+                Cliente cliente1 = new Cliente(nome, id, telefone, email);
+                concessionaria.cadastrarCliente(cliente1);
+                System.out.println("\nUsuario cadastrado com sucesso.");
+                continue;
+            }
 
-        System.out.println("\nVeiculos Disponiveis");
-        concessionaria.listarVeiculosDisponiveis();
 
-        concessionaria.realizarVendas("FER1A23", 1, "20/09/2025", "Á Vista", 3800000.0);
+            if (opcao == 2){
+                System.out.println("\nClientes Cadastrados");
+                concessionaria.listarClientes();
+                continue;
+            }
 
-        System.out.println("\nVendas Realizadas");
-        concessionaria.mostrarVendas();
+            if (opcao == 3){
+                input.nextLine();
+                System.out.print("Digite a marca do veiculo: ");
+                String marca = input.nextLine();
+                System.out.print("Digite o modelo do veiculo: ");
+                String modelo = input.nextLine();
+                System.out.print("Digite a placa do veiculo: ");
+                String placa = input.nextLine();
+                System.out.print("Digite o ano do veiculo: ");
+                int ano = input.nextInt();
+                System.out.print("Digite a disponibilidade do veiculo: ");
+                boolean disponibilidade = input.nextBoolean();
+                System.out.print("Digite o preço do veiculo: ");
+                double preco = input.nextDouble();
 
-        System.out.println("\nVeiculos Disponiveis Após a Venda");
-        concessionaria.listarVeiculosDisponiveis();
+                Veiculo v = new Veiculo(marca, modelo, placa, ano, disponibilidade, preco);
+                concessionaria.adicionarVeiculos(v);
+                System.out.println("\nVeiculo cadastrado com sucesso.");
+                continue;
+            }
+
+            if(opcao == 4){
+                System.out.println("\nVeiculos Disponiveis");
+                concessionaria.listarVeiculosDisponiveis();
+                continue;
+            }
+
+            if (opcao == 5){
+                input.nextLine();
+                System.out.print("Digite a placa: ");
+                String placa = input.nextLine();
+                System.out.print("Digite o ID do cliente: ");
+                int idCliente = input.nextInt();
+                System.out.print("Digite a data da venda: ");
+                String dataVenda = input.nextLine();
+                input.nextLine();
+                System.out.print("Digite a forma de pagamento: ");
+                String pagamento = input.nextLine();
+                System.out.print("Digite o valor: ");
+                double valor = input.nextDouble();
+                concessionaria.realizarVendas(placa, idCliente, dataVenda, pagamento, valor);
+                continue;
+            }
+
+            if (opcao == 6){
+                System.out.println("\nVendas Realizadas");
+                concessionaria.mostrarVendas();
+
+                System.out.println("\nVeiculos Disponiveis Após a Venda");
+                concessionaria.listarVeiculosDisponiveis();
+            }
+        }
     }
 }
