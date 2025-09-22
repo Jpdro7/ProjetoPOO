@@ -3,5 +3,5 @@
 <p><em>- Erlon Dantas Junior.</p></em>
 <h3>Componentes:</h3>
 <p><em>- João Pedro Almeida Nunes.</p></em>
-<p><em>- Edglan Sousa Xavier.</em></p>
+<p><em>- Edglan Xavier Martins.</em></p>
 <p><em>- Gabriel Moreira Amorin.</em></p>
