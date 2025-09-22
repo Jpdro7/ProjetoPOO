@@ -14,19 +14,19 @@ public class Concessionaria {
         this.vendas = new ArrayList<>();
     }
 
-    public boolean cadastrarCliente(Cliente cliente){
+    public boolean cadastrarCliente(Cliente id){
         for (Cliente c : clientes){
-            if (c.getId() == cliente.getId()){
+            if (c.getId() == id.getId()){
                 return false;
             }
         }
-        clientes.add(cliente);
+        clientes.add(id);
         return true;
     }
 
-    public boolean removerCliente(int idCliente){
+    public boolean removerCliente(int idRemover){
         for (Cliente c : clientes){
-            if (c.getId() == idCliente){
+            if (c.getId() == idRemover){
                 clientes.remove(c);
                 return true;
             }
@@ -78,19 +78,23 @@ public class Concessionaria {
         }
     }
 
-    public ArrayList<Veiculo> buscarVeiculoPorMarca(String marca){
+    public ArrayList<Veiculo> filtrarVeiculoPorMarca(String marca){
         ArrayList<Veiculo> encontrados = new ArrayList<>();
         for (Veiculo v : veiculos){
-            if (v.getMarca().equalsIgnoreCase(marca)){}
-            encontrados.add(v);
+            if (v.getMarca().equalsIgnoreCase(marca)){
+                System.out.println(v);
+                encontrados.add(v);
+            }
+
         }
         return encontrados;
     }
 
-    public ArrayList<Veiculo> buscarVeiculoPorModelo(String modelo){
+    public ArrayList<Veiculo> filtrarVeiculoPorModelo(String modelo){
         ArrayList<Veiculo> encontrados = new ArrayList<>();
         for (Veiculo v : veiculos){
             if(v.getModelo().equalsIgnoreCase(modelo)){
+                System.out.println(v);
                 encontrados.add(v);
             }
         }

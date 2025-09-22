@@ -1,8 +1,8 @@
 public class Cliente {
-    public String nome;
-    public int id;
-    public String telefone;
-    public String email;
+    private String nome;
+    private int id;
+    private String telefone;
+    private String email;
 
     public Cliente(String nome, int id, String telefone, String email){
         this.nome = nome;
@@ -17,14 +17,6 @@ public class Cliente {
 
     public int getId(){
         return id;
-    }
-
-    public String getTelefone(){
-        return telefone;
-    }
-
-    public String getEmail(){
-        return email;
     }
 
     @Override

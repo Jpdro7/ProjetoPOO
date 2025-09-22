@@ -13,26 +13,6 @@ public class Venda {
         this.formaPagamento = formaPagamento;
     }
 
-    public Veiculo getVeiculo(){
-        return veiculo;
-    }
-
-    public Cliente getCliente(){
-        return cliente;
-    }
-
-    public String getDataVenda(){
-        return dataVenda;
-    }
-
-    public double getValorVenda(){
-        return valorVenda;
-    }
-
-    public String getFormaPagamento(){
-        return formaPagamento;
-    }
-
     @Override
     public String toString(){
         return "Venda = " +

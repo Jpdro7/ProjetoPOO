@@ -10,13 +10,15 @@ public class Main {
 
             System.out.println("\n=====Menu=====");
             System.out.println("1- Cadastro.\n" +
-                    "2- Listar Usuarios.\n" +
+                    "2- Listar Clientes.\n" +
                     "3- Cadastrar Veiculos.\n" +
                     "4- Listar Veiculos Disponiveis.\n" +
                     "5- Realizar Vendas.\n" +
                     "6- Vendas Realizadas.\n" +
                     "7- Remover Cliente.\n" +
-                    "8- Remover Veiculo.");
+                    "8- Remover Veiculo.\n" +
+                    "9- Filtrar Veiculo Por Marca.\n" +
+                    "10- Filtrar Veiculo Por Modelo.");
 
             System.out.print("\nOpção: ");
             int opcao = input.nextInt();
@@ -34,8 +36,14 @@ public class Main {
                 String email = input.nextLine();
 
                 Cliente cliente1 = new Cliente(nome, id, telefone, email);
-                concessionaria.cadastrarCliente(cliente1);
-                System.out.println("\nUsuario cadastrado com sucesso.");
+                boolean verificar = concessionaria.cadastrarCliente(cliente1);
+
+                if (verificar){
+                    System.out.println("\nUsuario cadastrado com sucesso.");
+                }
+                else {
+                    System.out.println("\nEste ID já está cadastrado.");
+                }
                 continue;
             }
 
@@ -78,7 +86,7 @@ public class Main {
                 System.out.print("Digite a placa: ");
                 String placa = input.nextLine();
                 System.out.print("Digite o ID do cliente: ");
-                int idCliente = input.nextInt();
+                int id = input.nextInt();
                 System.out.print("Digite a data da venda: ");
                 String dataVenda = input.nextLine();
                 input.nextLine();
@@ -86,7 +94,7 @@ public class Main {
                 String pagamento = input.nextLine();
                 System.out.print("Digite o valor: ");
                 double valor = input.nextDouble();
-                concessionaria.realizarVendas(placa, idCliente, dataVenda, pagamento, valor);
+                concessionaria.realizarVendas(placa, id, dataVenda, pagamento, valor);
                 continue;
             }
 
@@ -100,8 +108,8 @@ public class Main {
 
             if (opcao == 7){
                 System.out.print("Digite o ID: ");
-                int idCliente = input.nextInt();
-                boolean remover = concessionaria.removerCliente(idCliente);
+                int idRemover = input.nextInt();
+                boolean remover = concessionaria.removerCliente(idRemover);
                 if (remover){
                     System.out.println("\nCliente removido com sucesso.");
                 }
@@ -122,6 +130,22 @@ public class Main {
                 else {
                     System.out.println("Veiculo não encontrado.");
                 }
+                continue;
+            }
+
+            if (opcao == 9){
+                input.nextLine();
+                System.out.print("\nDigite a marca do veiculo: ");
+                String marca = input.nextLine();
+                concessionaria.filtrarVeiculoPorMarca(marca);
+                continue;
+            }
+
+            if (opcao == 10){
+                input.nextLine();
+                System.out.print("\nDigite o modelo do veiculo: ");
+                String modelo = input.nextLine();
+                concessionaria.filtrarVeiculoPorModelo(modelo);
             }
         }
     }

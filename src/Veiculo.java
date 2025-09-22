@@ -27,14 +27,6 @@ public class Veiculo {
         return placa;
     }
 
-    public int getAno(){
-        return ano;
-    }
-
-    public double getPreco(){
-        return preco;
-    }
-
     public boolean isDisponivel(){
         return disponivel;
     }
